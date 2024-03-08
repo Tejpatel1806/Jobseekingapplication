@@ -1,6 +1,8 @@
 const { catchAsyncErrors } = require("../middlewares/catchAsyncError.js");
 const { ErrorHandler } = require("../middlewares/error.js");
 const Application = require("../models/applicationSchema.js");
+const cloudinary = require("cloudinary");
+const Job = require("../models/jobSchema.js");
 const postApplication = catchAsyncErrors(async (req, res, next) => {
   const { role } = req.user;
   if (role === "Employer") {
@@ -13,6 +15,7 @@ const postApplication = catchAsyncErrors(async (req, res, next) => {
   }
 
   const { resume } = req.files;
+  console.log("resume is", req.files.resume);
   const allowedFormats = ["image/png", "image/jpeg", "image/webp"];
   if (!allowedFormats.includes(resume.mimetype)) {
     return next(
@@ -22,7 +25,7 @@ const postApplication = catchAsyncErrors(async (req, res, next) => {
   const cloudinaryResponse = await cloudinary.uploader.upload(
     resume.tempFilePath
   );
-
+  console.log("hello");
   if (!cloudinaryResponse || cloudinaryResponse.error) {
     console.error(
       "Cloudinary Error:",
@@ -30,23 +33,46 @@ const postApplication = catchAsyncErrors(async (req, res, next) => {
     );
     return next(new ErrorHandler("Failed to upload Resume to Cloudinary", 500));
   }
+  console.log("hello1");
   const { name, email, coverLetter, phone, address, jobId } = req.body;
   const applicantID = {
     user: req.user._id,
     role: "Job Seeker",
   };
+  console.log("hello2");
   if (!jobId) {
     return next(new ErrorHandler("Job not found!", 404));
   }
+  console.log("hello3");
   const jobDetails = await Job.findById(jobId);
+  console.log("job details is", jobDetails);
   if (!jobDetails) {
     return next(new ErrorHandler("Job not found!", 404));
   }
-
+  console.log("helol------");
   const employerID = {
     user: jobDetails.postedBy,
     role: "Employer",
   };
+  console.log("employee is is", employerID, "applicant id is", applicantID);
+  console.log(
+    "name",
+    name,
+    " ",
+    email,
+    " ",
+    coverLetter,
+    " ",
+    phone,
+    " ",
+    address,
+    " ",
+    applicantID,
+    " ",
+    employerID,
+    " ",
+    resume
+  );
   if (
     !name ||
     !email ||

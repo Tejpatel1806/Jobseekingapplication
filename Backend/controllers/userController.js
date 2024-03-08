@@ -60,4 +60,12 @@ const logout = catchAsyncErrors(async (req, res, next) => {
     });
 });
 
-module.exports = { register, login, logout };
+const getUser = catchAsyncErrors((req, res, next) => {
+  const user = req.user;
+  res.status(200).json({
+    success: true,
+    user,
+  });
+});
+
+module.exports = { register, login, logout, getUser };
