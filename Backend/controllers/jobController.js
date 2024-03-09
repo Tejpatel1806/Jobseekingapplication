@@ -122,4 +122,28 @@ const deleteJob = catchAsyncErrors(async (req, res, next) => {
     message: "Job Deleted!",
   });
 });
-module.exports = { getAllJobs, postJob, getMyJobs, updateJob, deleteJob };
+
+const getSingleJob = catchAsyncErrors(async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const job = await Job.findById(id);
+    if (!job) {
+      return next(new ErrorHandler("Job not found.", 404));
+    }
+    res.status(200).json({
+      success: true,
+      job,
+    });
+  } catch (error) {
+    return next(new ErrorHandler(`Invalid ID / CastError`, 404));
+  }
+});
+
+module.exports = {
+  getAllJobs,
+  postJob,
+  getMyJobs,
+  updateJob,
+  deleteJob,
+  getSingleJob,
+};
