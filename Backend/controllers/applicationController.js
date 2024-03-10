@@ -25,7 +25,7 @@ const postApplication = catchAsyncErrors(async (req, res, next) => {
   const cloudinaryResponse = await cloudinary.uploader.upload(
     resume.tempFilePath
   );
-  console.log("hello");
+
   if (!cloudinaryResponse || cloudinaryResponse.error) {
     console.error(
       "Cloudinary Error:",
@@ -33,23 +33,23 @@ const postApplication = catchAsyncErrors(async (req, res, next) => {
     );
     return next(new ErrorHandler("Failed to upload Resume to Cloudinary", 500));
   }
-  console.log("hello1");
+
   const { name, email, coverLetter, phone, address, jobId } = req.body;
   const applicantID = {
     user: req.user._id,
     role: "Job Seeker",
   };
-  console.log("hello2");
+
   if (!jobId) {
     return next(new ErrorHandler("Job not found!", 404));
   }
-  console.log("hello3");
+
   const jobDetails = await Job.findById(jobId);
   console.log("job details is", jobDetails);
   if (!jobDetails) {
     return next(new ErrorHandler("Job not found!", 404));
   }
-  console.log("helol------");
+
   const employerID = {
     user: jobDetails.postedBy,
     role: "Employer",
