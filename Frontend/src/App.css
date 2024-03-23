@@ -72,127 +72,226 @@ p {
   }
 }
 
+/*Register*/
+.registerAuthPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height:100vh;
+  background-image: url("./bg2.jpg");
+  background-size:900px;
+}
+
+.registercontainer {
+  width: 500px;
+  height:650px;
+  background-color: rgb(237, 235, 235 , 0.60);
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header img {
+  width: 150px; /* Increased logo size as needed */
+  height: 60px;
+  margin-bottom: 5px;
+}
+
+.header h3 {
+  font-size: 20px; /* Increased font size for title */
+  font-weight: bold;
+  color: #333;
+}
+
+
+Label {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2px;
+  margin-top:5px;
+  font-size: 16px;
+  font-weight:500; /* Increased font size for labels */
+  color: #333; 
+}
+
+Label span{
+  margin-right: 5px;
+}
+
+.form-control {
+  width: 450px;
+  height: 40px; /* Increased input height for better alignment */
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 18px; /* Increased font size for fields */
+  font-family: inherit; /* Inherit font family from container */
+  border:1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+ .registercontainer Button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  height:42px;
+  width: 460px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-weight: 400;
+  color: #fff;
+  font-size: 18px; /* Increased button font size */
+  background-color: #428bca;
+  border:1px #428bca;
+  border-radius:5px; /* Classic blue button background */ 
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+.registercontainer Button:hover {
+  background-color: #255f92;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height:50px;
+  margin-top: 15px;
+  font-weight: 400;
+  color: #fff;
+  font-size: 18px; /* Increased button font size */
+  background-color: #428bca;
+  border:1px #428bca;
+  border-radius: 5px; /* Classic blue button background */ 
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+.link:hover{
+  background-color: #255f92;
+}
+
+/* Overall layout and background */
+/* Overall layout and background */
+/* Overall layout */
+/* Overall layout */
 .authPage {
   display: flex;
-  min-width: 1500px;
-  max-width: 1500px;
-  margin: 0 auto;
-  min-height: 100vh;
+  justify-content: center; /* Center form horizontally */
+  align-items: center; /* Center form vertically */
+  min-height: 100vh; /* Set minimum height for viewport */
+  background-image: url("./bg2.jpg");
+  background-size:900px; /* Light gray background */
 }
+
+/* Form container styling with increased size and subtle shadow */
 .authPage .container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: #fff;
-  padding: 20px 20px;
+  background-color: rgb(237, 235, 235 , 0.60); /* White background for better contrast */
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px 30px; /* Increased padding for larger form */
+  max-width: 500px; /* Increased max-width for larger container */
+  font-family: 'Open Sans', sans-serif; /* Good font family choice */
 }
+
+/* Header with logo, title, and spacing */
 .authPage .container .header {
   display: flex;
-  gap: 15px;
   flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  text-align: center;
 }
+
 .authPage .container .header h3 {
-  font-size: 1.6rem;
+  font-size: 20px; /* Increased font size for title */
+  font-weight:500;
+  color: #333; /* Darker text for better contrast */
 }
+
 .authPage .container .header img {
-  width: 300px;
-  height: 120px;
-  margin: 0 auto;
+  width: 150px; /* Increased logo size as needed */
+  height: 60px;
+  margin-bottom:5px;
+   /* Increased logo size as needed */
 }
-.authPage .container .header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-.authPage .container form {
+
+/* Login form styling */
+.authPage .container Form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px; /* Increased gap for spacing */
 }
-.authPage .container form .inputTag {
+
+.authPage .container Form Label {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-direction: row;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold; /* Increased font size for labels */
+  color: #333;  /* Remove margin-bottom for labels on top */
 }
-.authPage .container form .inputTag div {
+
+.authPage .container Form Label span{
+  margin-right:5px;
+}
+
+.authPage .container Form .field
+ {
   display: flex;
-  align-items: center;
-  border-radius: 7px;
+  width: 350px;
+  height: 40px; /* Increased input height for better alignment */
+  padding: 5px;
+  font-size: 18px; /* Increased font size for fields */
+  font-family: inherit; /* Inherit font family from container */
+  border:1px solid #ccc;
+  border-radius: 5px; /* Remove default border for a cleaner look */
 }
-.authPage .container form .inputTag div input,
-.authPage .container form .inputTag div select {
-  background: #87878778;
-  padding: 8px;
-  border: none;
-  width: 100%;
-  height: 100%;
+
+.authPage .container Form .field:focus {
+  outline-color:#357ebd;
 }
-.authPage .container form .inputTag div input:focus,
-.authPage .container form .inputTag div select:focus {
-  outline: none;
-}
-.authPage .container form .inputTag div svg {
-  width: 10%;
-  font-size: 1.5rem;
-  background: #2d5649;
-  height: 100%;
-  padding: 8px;
-  color: #fff;
-}
-.authPage .container form button {
-  padding: 12px;
+
+.link{
   text-align: center;
-  border: none;
-  margin-top: 25px;
-  font-weight: 700;
+  padding-top: 7px;
+  height:40px;
+  margin-top: 10px;
+  font-weight: 400;
   color: #fff;
-  background: #2d5649;
-  font-size: 1.2rem;
-  border-radius: 7px;
+  font-size: 18px; /* Increased button font size */
+  background-color: #428bca;
+  border:1px #428bca; /* Classic blue button background */ 
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
-.authPage .container form a {
-  padding: 12px;
+
+.link:hover{
+  background-color: #255f92;
+}
+/* Login button with classic blue color and hover effect */
+.authPage .container Form Button {
+  height:40px;
   text-align: center;
-  border: 1px solid #2d5649;
-  margin-top: 25px;
-  font-weight: 700;
-  color: #2d5649;
-  font-size: 1.2rem;
-  text-decoration: none;
-  border-radius: 7px;
+  margin-top: 10px;
+  font-weight: 400;
+  color: #fff;
+  font-size: 18px; /* Increased button font size */
+  background-color: #428bca;
+  border:1px #428bca;
+  border-radius: 5px; /* Classic blue button background */ 
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
-.authPage .banner {
-  flex: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-y: hidden;
-}
-.authPage .banner img {
-  width: 100%;
-  width: 550px;
-  height: 550px;
-}
-@media (max-width: 1520px) {
-  .authPage {
-    min-width: 100%;
-  }
-}
-@media (max-width: 830px) {
-  .authPage {
-    min-height: 100vh;
-    height: auto;
-  }
-  .authPage .container {
-    flex: none;
-    width: 100%;
-    justify-content: flex-start;
-    padding: 40px 20px;
-  }
-  .authPage .banner {
-    flex: none;
-    display: none;
-  }
+
+.authPage .container Form Button:hover {
+  background-color: #255f92; /* Darken blue on hover */
 }
 
 .footerShow {
@@ -241,6 +340,8 @@ p {
   display: flex;
   flex-direction: column;
   padding: 75px 0 50px 0;
+  background-image: url('../public/hero3.jpg');
+  background-size: contain;
 }
 .heroSection .container,
 .heroSection .details {
@@ -1150,30 +1251,45 @@ p {
 }
 nav {
   background: #18191c;
-  padding: 0 20px;
+
 }
 nav .container {
-  max-width: 1500px;
-  min-width: 1500px;
+  display:flex;
+  flex-direction: row;
+  padding: 0 10px;
+  max-width: 1900px;
+  min-width: 1900px;
+  height: 100px;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
 }
+
 nav .container .logo {
-  width: 120px;
-  height: 120px;
+  position: relative;
+  bottom: 30px;
+  width: 150px;
+  height: 150px;
+  left: 30px;
+
+   /* In case you have other elements inside .logo */
 }
+
 nav .container .logo img {
-  width: 100%;
-  height: 100%;
+  max-width: 150px;
+  max-height: 150px;
+
 }
-nav .menu {
+
+nav .container .menu {
+  position:relative;
   display: flex;
+  flex-direction: row;
+  bottom: 2px;
+  left:750px;
   gap: 25px;
-  align-items: center;
+  align-items:center;
+
 }
 nav .menu button {
-  height: fit-content;
   padding: 7px;
   border: 1px solid #f1f3f6;
   color: #f1f3f6;
@@ -1194,7 +1310,7 @@ nav .menu li a {
   text-decoration: none;
   font-weight: 300;
   font-size: 20px;
-  position: relative;
+
 }
 nav .menu li a:hover {
   color: #2d5649;

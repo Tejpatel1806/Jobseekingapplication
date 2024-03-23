@@ -43,9 +43,6 @@ const Herosection = () => {
             facere mollitia!
           </p>
         </div>
-        <div className="image">
-          <img src="/heroS.jpg" alt="hero" />
-        </div>
       </div>
       <div className="details">
         {details.map((element) => {
